@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{% if title %} {{ title }} - {% endif %} Web flask sederhana</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md shadow" style="background: #3591ae;">
+        <div class="container"><a class="navbar-brand" href="#">Web flask sederhana</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link {% if request.path == url_for('home') %} active {% endif %}" href="{{ url_for('home') }}">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link {% if request.path == url_for('tentang') %} active {% endif %}" href="{{ url_for('tentang')}}">Tentang</a></li>
+                    {% if session['username'] is not defined %}
+                    <li class="nav-item"><a class="nav-link {% if request.path == url_for('login') %} active {% endif %}" href="{{ url_for('login')}}">Masuk</a></li>
+                    <li class="nav-item"><a class="nav-link {% if request.path == url_for('daftar') %} active {% endif %}" href="{{ url_for('daftar')}}">Daftar</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('logout')}}">Logout</a></li>
+                    {% endif %}
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div class="container">
+            {% block content %}
+                <!-- ini diisi oleh konten yang dikirim -->
+            {% endblock %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row" style="padding-top: 15px;">
+    <div class="col-md-8" style="border-style: none;">
+        <div class="card border-info border rounded-0 shadow" style="border-style: solid;margin-bottom: 10px;">
+            <div class="card-body" style="padding: 0;padding-top: 10px;padding-right: 15px;padding-left: 5px;">
+                <div style="padding-left: 10px;padding-right: 15px;padding-top: 2px;">
+                    <h4>Ayo Bergabung !</h4>
+                    <p>Bergabung dan Mulai Menulis</p>
+                </div>
+                <hr>
+                {% if message is defined and message %}
+                <div class="alert alert-warning" role="alert">
+                    {{ message }}
+                  </div>
+                {% endif %}
+                <form style="padding-left: 12px;"  action="{{ url_for('daftar') }}" method="POST">
+                    <div class="form-group"><label>Nama<br></label><input class="form-control" type="text" name="nama"></div>
+                    <div class="form-group"><label>Username<br></label><input class="form-control" type="text" name="username"></div>
+                    <div class="form-group"><label>Email<br></label><input class="form-control" type="text" name="email"></div>
+                    <div class="form-group"><label>Password<br></label><input class="form-control" type="text" name="password"></div>
+                    <div class="form-group"><label>Konfirmasi Password<br></label><input class="form-control" type="text" name="konfirm_password"></div>
+                    <div class="form-group"><button class="btn btn-outline-info" type="submit">Daftar</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Menu Cepat</h4>
+                <ul class="list-group">
+                    <li class="list-group-item"><span>Post Populer</span></li>
+                    <li class="list-group-item"><span>Pengumuman</span></li>
+                    <li class="list-group-item"><span>Acara</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
