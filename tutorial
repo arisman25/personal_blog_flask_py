@@ -1,0 +1,12 @@
+#Buat virtual environment terlebih dahulu
+    Buka CMD
+        - masuk ke direktory dimana folder project tersebut disimpan
+            cd flask-pytho/personal_blog_flask_py
+        - buat environment
+            virtualenv personal_blog-env
+        - jalankan virtual environment tersebut
+             personal_blog-env\Scripts\activate.bat
+
+Import package
+    - pip install flask
+    - pip install flask_mysqldb
